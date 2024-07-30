@@ -1,6 +1,7 @@
 import { listData } from "../../libs/dammyData";
 import Card from "./components/Card";
 import Filter from "./components/Filter";
+import Map from "./components/Map";
 import "./listPage.scss";
 
 export default function ListPage() {
@@ -16,7 +17,9 @@ export default function ListPage() {
           ))}
         </div>
       </section>
-      <section className="mapContainer">map</section>
+      <section className="mapContainer">
+        <Map items={data} />
+      </section>
     </div>
   );
 }

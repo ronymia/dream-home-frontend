@@ -40,7 +40,7 @@ export default function SinglePage() {
             </div>
 
             {/* Bottom  */}
-            <div className="bottom"></div>
+            <div className="bottom">{singlePostInfo.description}</div>
           </section>
         </div>
       </section>

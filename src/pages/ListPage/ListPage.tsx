@@ -1,8 +1,8 @@
 import { listData } from "../../libs/dammyData";
-import Card from "./components/Card";
 import Filter from "./components/Filter";
-import Map from "./components/Map";
+import Map from "../../components/map/Map";
 import "./listPage.scss";
+import Card from "../../components/card/Card";
 
 export default function ListPage() {
   const data = listData;

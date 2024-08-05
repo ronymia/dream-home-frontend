@@ -1,7 +1,8 @@
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "./map.scss";
 import "leaflet/dist/leaflet.css";
-import Pin from "./Pin";
+import Pin from "../../pages/ListPage/components/Pin";
+import { ISinglePost } from "../../types/data.interface";
 
 interface IListData {
   id: number;
@@ -15,7 +16,7 @@ interface IListData {
   longitude: number;
 }
 interface IMapProps {
-  items: IListData[];
+  items: IListData[] | ISinglePost[];
 }
 
 export default function Map({ items }: IMapProps) {

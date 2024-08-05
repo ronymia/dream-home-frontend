@@ -3,6 +3,7 @@ import RootLayout from "../layouts/RootLayout";
 import HomePage from "../pages/homePage/HomePage";
 import ListPage from "../pages/ListPage/ListPage";
 import SinglePage from "../pages/SinglePage/SinglePage";
+import ProfilePage from "../pages/ProfilePage/ProfilePage";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "/:id",
         element: <SinglePage />,
+      },
+      {
+        path: "/profile",
+        element: <ProfilePage />,
       },
     ],
   },

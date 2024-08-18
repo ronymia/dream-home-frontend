@@ -1,11 +1,12 @@
 import { Link, NavLink } from "react-router-dom";
 import "./navbar.scss";
-import { useState } from "react";
+import { Fragment, useState } from "react";
+import { useAppSelector } from "../../redux/hooks";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const { user } = useAppSelector((state) => state.auth);
 
-  const user = true;
   return (
     <nav>
       <div className="left">
@@ -27,6 +28,25 @@ export default function Navbar() {
         <NavLink to={"/about"}>About</NavLink>
         <NavLink to={"/contact"}>Contact</NavLink>
         <NavLink to={"/agent"}>Agents</NavLink>
+
+        {/* Menu Icon
+         * MOBILE RESPONSIVE
+         */}
+        <div
+          style={{
+            display: open ? "flex" : "none",
+          }}
+          className={open ? "menu active" : "menu"}
+        >
+          <NavLink to={"/"}>Home</NavLink>
+          <NavLink to={"/about"}>About</NavLink>
+          <NavLink to={"/contact"}>Contact</NavLink>
+          <NavLink to={"/agent"}>Agents</NavLink>
+          <NavLink to="/auth/login">Sign in</NavLink>
+          <NavLink to="/auth/register" className="register">
+            Sign up
+          </NavLink>
+        </div>
       </div>
 
       <div className="right">
@@ -43,31 +63,11 @@ export default function Navbar() {
             </Link>
           </div>
         ) : (
-          <>
-            <NavLink to="/">Sign in</NavLink>
-            <NavLink to="/" className="register">
-              Sign up
-            </NavLink>
-          </>
+          <Fragment>
+            <NavLink to="/auth/login">Sign in</NavLink>
+            <NavLink to="/auth/register">Sign up</NavLink>
+          </Fragment>
         )}
-
-        {/* Menu Icon
-         * MOBILE RESPONSIVE
-         */}
-
-        <div
-          style={{
-            display: open ? "flex" : "none",
-          }}
-          className={open ? "menu active" : "menu"}
-        >
-          <NavLink to={"/"}>Home</NavLink>
-          <NavLink to={"/about"}>About</NavLink>
-          <NavLink to={"/contact"}>Contact</NavLink>
-          <NavLink to={"/agent"}>Agents</NavLink>
-          <a href="/">Sign in</a>
-          <a href="/">Sign up</a>
-        </div>
       </div>
     </nav>
   );

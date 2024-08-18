@@ -75,6 +75,22 @@
           border-radius: 50%;
           object-fit: cover;
         }
+
+        button {
+          padding: 12px 24px;
+          border-radius: 5px;
+          border: none;
+          background-color: teal;
+          color: white;
+          font-weight: bold;
+          cursor: pointer;
+          width: fit-content;
+
+          &:disabled {
+            background-color: #bed9d8;
+            cursor: not-allowed;
+          }
+        }
       }
     }
   }

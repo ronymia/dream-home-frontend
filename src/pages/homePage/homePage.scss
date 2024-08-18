@@ -3,6 +3,7 @@
 .homePage {
   display: flex;
   height: 100%;
+  overflow: hidden;
 
   .textContainer {
     flex: 3;
@@ -56,9 +57,9 @@
   }
 
   .imgContainer {
+    position: relative;
     flex: 2;
     background-color: #fcf5f3;
-    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -69,6 +70,7 @@
 
     img {
       width: 115%;
+      height: 125%;
       position: absolute;
       right: 0;
 

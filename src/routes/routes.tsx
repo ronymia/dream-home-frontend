@@ -1,9 +1,13 @@
+// src/routes/router.tsx
 import { createBrowserRouter } from "react-router-dom";
 import RootLayout from "../layouts/RootLayout";
 import HomePage from "../pages/homePage/HomePage";
 import ListPage from "../pages/ListPage/ListPage";
 import SinglePage from "../pages/SinglePage/SinglePage";
 import ProfilePage from "../pages/ProfilePage/ProfilePage";
+import Login from "../pages/auth/login/Login";
+import Register from "../pages/auth/Register/Register";
+import PrivateRoutes from "./PrivateRoutes";
 
 const router = createBrowserRouter([
   {
@@ -11,20 +15,39 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       {
-        path: "/",
+        index: true,
         element: <HomePage />,
       },
       {
-        path: "/list",
+        path: "auth",
+        children: [
+          {
+            path: "login",
+            element: <Login />,
+          },
+          {
+            path: "register",
+            element: <Register />,
+          },
+        ],
+      },
+      {
+        path: "list",
         element: <ListPage />,
       },
       {
-        path: "/:id",
-        element: <SinglePage />,
+        path: "profile",
+        element: <PrivateRoutes />,
+        children: [
+          {
+            index: true,
+            element: <ProfilePage />,
+          },
+        ],
       },
       {
-        path: "/profile",
-        element: <ProfilePage />,
+        path: ":id",
+        element: <SinglePage />,
       },
     ],
   },

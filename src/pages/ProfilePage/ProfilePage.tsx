@@ -1,8 +1,12 @@
+import { logOut } from "../../redux/features/auth/authSlice";
+import { useAppDispatch } from "../../redux/hooks";
 import Chat from "./components/Chat";
 import List from "./components/List";
 import "./profilePage.scss";
 
 export default function ProfilePage() {
+  const dispatch = useAppDispatch();
+
   return (
     <div className="profilePage">
       {/* USER DETAILS  */}
@@ -26,6 +30,10 @@ export default function ProfilePage() {
             <span>
               E-mail: <b>john@gmail.com</b>
             </span>
+
+            <button type="button" onClick={() => dispatch(logOut())}>
+              Log Out
+            </button>
           </div>
 
           {/* MY NEW POST LIST */}

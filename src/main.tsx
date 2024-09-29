@@ -4,7 +4,7 @@ import "./index.scss";
 import { RouterProvider } from "react-router-dom";
 import router from "./routes/routes.tsx";
 import { Provider } from "react-redux";
-import { persistor, store } from "./redux/store.ts";
+import { persistor, store } from "./app/store.ts";
 import axios from "axios";
 import { PersistGate } from "redux-persist/integration/react";
 

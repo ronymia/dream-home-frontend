@@ -1,7 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import "./navbar.scss";
 import { Fragment, useState } from "react";
-import { useAppSelector } from "../../redux/hooks";
+import { useAppSelector } from "../../app/hooks";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);

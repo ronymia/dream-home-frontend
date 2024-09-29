@@ -1,23 +1,22 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { authApi } from "./api/authApi";
-import authReducer from "./features/auth/authSlice";
+import authReducer from "./features/authSlice";
 
 import storage from "redux-persist/lib/storage";
 import { persistReducer, persistStore } from "redux-persist";
+import { authApi } from "./apis/authApi";
 
 const persistConfig = {
   key: "root",
   storage,
-  // Optionally, specify which slices of state to persist
-  whitelist: ["auth"], // Specify the slices of state you want to persist
+  whitelist: ["user", "isAuthenticated", "token", "permissions"],
 };
 
 const persistedAuthReducer = persistReducer(persistConfig, authReducer);
 
 export const store = configureStore({
   reducer: {
+    auth: persistedAuthReducer,
     [authApi.reducerPath]: authApi.reducer,
-    auth: persistedAuthReducer, // Use the persisted reducer here
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({ serializableCheck: false }).concat(

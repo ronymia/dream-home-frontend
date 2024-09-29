@@ -1,5 +1,5 @@
-import { logOut } from "../../redux/features/auth/authSlice";
-import { useAppDispatch } from "../../redux/hooks";
+import { logOut } from "../../app/features/authSlice";
+import { useAppDispatch } from "../../app/hooks";
 import Chat from "./components/Chat";
 import List from "./components/List";
 import "./profilePage.scss";

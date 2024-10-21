@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { logOut } from "../../app/features/authSlice";
 import { useAppDispatch } from "../../app/hooks";
 import Chat from "./components/Chat";
@@ -5,6 +6,7 @@ import List from "./components/List";
 import "./profilePage.scss";
 
 export default function ProfilePage() {
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
   return (
@@ -14,7 +16,9 @@ export default function ProfilePage() {
         <div className="wrapper">
           <div className="title">
             <h1>User Information</h1>
-            <button>Update Profile</button>
+            <button type="button" onClick={() => navigate("update")}>
+              Update Profile
+            </button>
           </div>
           <div className="info">
             <span>

@@ -48,11 +48,11 @@ const authSlice = createSlice({
         state.user = payload.user;
         state.token = payload.token;
         state.isAuthenticated = true;
-        localStorage.setItem("token", payload.token);
-        localStorage.setItem("user", JSON.stringify(payload.user));
+        localStorage.setItem("token", payload?.token);
+        localStorage.setItem("user", JSON.stringify(payload?.user));
         localStorage.setItem(
           "userPermissions",
-          JSON.stringify(payload.user.permissions ?? [])
+          JSON.stringify(payload?.user?.permissions ?? [])
         );
       }
     );

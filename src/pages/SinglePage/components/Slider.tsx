@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./slider.scss";
 
 /**
  * Component for rendering a slider of images.

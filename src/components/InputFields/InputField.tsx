@@ -1,19 +1,20 @@
 import React from "react";
 
 export type InputFieldProps = {
-  label: string;
+  label?: string;
   type?: string;
   id?: string;
   name: string;
   value: string;
   defaultValue?: string;
   placeholder: string;
+  formNoValidate?: boolean;
   required?: boolean;
   readOnly?: boolean;
   disabled?: boolean;
-  maxLength: number;
-  minLength: number;
-  pattern: RegExp;
+  maxLength?: number;
+  minLength?: number;
+  pattern?: RegExp;
   error?: string;
   minLengthMessage?: string;
   maxLengthMessage?: string;
@@ -40,14 +41,10 @@ export default function InputField({
   maxLength,
   minLength,
   pattern,
+  formNoValidate = false,
   required = false,
   readOnly = false,
   disabled = false,
-  minLengthMessage,
-  maxLengthMessage,
-  patternMessage,
-  maxMessage,
-  minMessage,
   wrapperClassName,
   fieldClassName,
   labelClassName,
@@ -58,10 +55,10 @@ export default function InputField({
       {/* LABEL */}
       {label && (
         <label htmlFor={id} className={`${labelClassName}`}>
-          <span className="label-text text-md font-bold">
+          <span className="text-sm font-medium ">
             {label}{" "}
             {required && (
-              <span className="text-error font-bold text-md">*</span>
+              <span className="text-error font-bold text-lg">*</span>
             )}
           </span>
         </label>
@@ -76,11 +73,12 @@ export default function InputField({
         value={value} // Ensure value is never undefined
         defaultValue={defaultValue}
         placeholder={placeholder}
+        formNoValidate={formNoValidate}
         required={required}
         readOnly={readOnly}
         disabled={disabled}
         autoFocus={!!error}
-        pattern={pattern}
+        pattern={pattern ? pattern.source : undefined} // Convert RegExp to string
         maxLength={maxLength}
         minLength={minLength}
         aria-placeholder={placeholder} // Use aria-placeholder for accessibility
@@ -89,11 +87,12 @@ export default function InputField({
         autoComplete="off" // Disable autocomplete
         spellCheck={false} // Disable spell checking
         {...inputProps}
-        className={`${fieldClassName} bg-base-300 rounded border border-solid border-[#C5C5C5] px-3 py-2 placeholder:text-sm placeholder:capitalize focus:outline-none ${
-          error
-            ? "border-red-500 focus:border-red-500"
-            : "border-gray-300 focus:border-primary"
-        }`}
+        className={`bg-base-300 rounded border border-solid border-[#C5C5C5] px-3 py-2 placeholder:text-sm placeholder:capitalize focus:outline-none ${fieldClassName} 
+          ${
+            error
+              ? "border-error focus:border-error"
+              : "border-gray-300 focus:border-primary"
+          }`}
       />
 
       {/* Error Message */}
@@ -104,7 +103,7 @@ export default function InputField({
           aria-label="error message"
           aria-live="assertive" // Ensures screen readers announce the message immediately
           aria-atomic="true" // Ensures the whole message is read out
-          className="text-xs text-red-500"
+          className="text-xs text-error"
         >
           {error}
         </p>

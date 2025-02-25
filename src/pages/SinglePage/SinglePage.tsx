@@ -2,7 +2,6 @@ import Map from "../../components/map/Map";
 import { singlePostData, userData } from "../../libs/dammyData";
 import { ISinglePost } from "../../types/data.interface";
 import Slider from "./components/Slider";
-import "./singlePage.scss";
 
 export default function SinglePage() {
   const singlePostInfo: ISinglePost = singlePostData;

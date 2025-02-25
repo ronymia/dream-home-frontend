@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./ImageUpload.scss"; // Import the SCSS file
 
 interface ImageUploadProps {
   imageUrl?: string;

@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+
+/* TAILWIND CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* VARIABLE DECLARE */
+:root {
+  --primary-color: #fece51;
+  --secondary-color: #008080;
+  --gray-color: #808080;
+  --danger-color: #e74c3c;
+  --text-color: #333;
+}
+
+body {
+  @apply font-Nunito overflow-hidden;
+}
+
+.btn {
+  @apply px-6 py-3 rounded;
+}
+
+.btn-primary {
+  @apply bg-primary;
+}
+.btn-secondary {
+  @apply bg-secondary;
+}

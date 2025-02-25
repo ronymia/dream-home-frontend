@@ -16,7 +16,7 @@ export interface IGenericErrorMessage {
 }
 
 export interface IGenericErrorResponse {
-  statusCode: number;
+  status: number;
   message: string;
   errorMessages: IGenericErrorMessage[];
 }

@@ -5,8 +5,8 @@ import HomePage from "../pages/homePage/HomePage";
 import ListPage from "../pages/ListPage/ListPage";
 import SinglePage from "../pages/SinglePage/SinglePage";
 import ProfilePage from "../pages/ProfilePage/ProfilePage";
-import Login from "../pages/auth/login/Login";
-import Register from "../pages/auth/Register/Register";
+import Login from "../pages/auth/Login";
+import Register from "../pages/auth/Register";
 import PrivateRoutes from "./PrivateRoutes";
 import ProfileUpdatePage from "../pages/UpdateProfilePage/UpdateProfilePage";
 

@@ -1,9 +1,8 @@
-import { LoginRequest, LoginResponse } from "../../types/common";
 import { TagTypes } from "../tag-types";
 import { baseApi } from "./baseApi";
 
 //
-const AUTH_URL = "auth";
+const AUTH_URL = "v1/auth";
 
 export const authApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
@@ -18,7 +17,7 @@ export const authApi = baseApi.injectEndpoints({
     }),
 
     // LOGIN
-    login: builder.mutation<LoginResponse, LoginRequest>({
+    login: builder.mutation({
       query: (credential) => ({
         url: `${AUTH_URL}/login`,
         method: "POST",
@@ -26,8 +25,20 @@ export const authApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: [TagTypes.user],
     }),
+
+    // USER STATE CHANGE
+    onAuthStateChange: builder.query({
+      query: () => ({
+        url: `${AUTH_URL}/onAuthStateChange`,
+        method: "GET",
+      }),
+    }),
   }),
 });
 
 // auto-generated based on the defined endpoints
-export const { useLoginMutation, useRegisterMutation } = authApi;
+export const {
+  useLoginMutation,
+  useRegisterMutation,
+  useLazyOnAuthStateChangeQuery,
+} = authApi;

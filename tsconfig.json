@@ -9,13 +9,10 @@
     }
   ],
   "compilerOptions": {
-    "baseUrl": "src",
     "paths": {
-      "@components/*": ["components/*"],
-      "@app/*": ["app/*"],
-      "@services/*": ["services/*"],
-      "@features/*": ["features/*"],
+     "@/*": ["./src/*"]
     },
+    "baseUrl": "src",
     "types": ["node"]
   }
 }

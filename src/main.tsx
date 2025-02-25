@@ -1,22 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.scss";
 import { RouterProvider } from "react-router-dom";
-import router from "./routes/routes.tsx";
+import "./index.css"; // TAILWIND CSS IMPORT
+import router from "./routes/routes.tsx"; // ALL ROUTES
 import { Provider } from "react-redux";
-import { persistor, store } from "./app/store.ts";
-import axios from "axios";
-import { PersistGate } from "redux-persist/integration/react";
-
-// set axios base url
-axios.defaults.baseURL = "http://localhost:5000/api/v1";
+import { store } from "./libs/store.ts"; // REDUX STORE
+import AuthProvider from "./context/AuthContext.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
+      <AuthProvider>
         <RouterProvider router={router}></RouterProvider>
-      </PersistGate>
+      </AuthProvider>
     </Provider>
   </React.StrictMode>
 );

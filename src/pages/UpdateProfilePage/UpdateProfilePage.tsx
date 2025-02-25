@@ -1,8 +1,7 @@
 import { useState } from "react";
-import "./UpdateProfilePage.scss";
 import { useNavigate } from "react-router-dom";
-import { useAppSelector } from "../../app/hooks";
-import { useUpdateProfileMutation } from "../../app/apis/userApi";
+import { useAppSelector } from "../../libs/hooks";
+import { useUpdateProfileMutation } from "../../libs/apis/userApi";
 import ImageUpload from "../../components/uplaoder/ImageUploader";
 
 function ProfileUpdatePage() {

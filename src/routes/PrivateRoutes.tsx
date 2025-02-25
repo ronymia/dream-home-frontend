@@ -1,5 +1,5 @@
 import { Navigate, Outlet, useLocation } from "react-router-dom";
-import { useAppSelector } from "../app/hooks";
+import { useAppSelector } from "../libs/hooks";
 
 export default function PrivateRoutes() {
   const location = useLocation();
